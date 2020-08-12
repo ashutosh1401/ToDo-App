@@ -1,0 +1,21 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  padding: 5px;
+}
+.bod {
+  box-shadow: 5px 10px #dcdedc;
+}
+
+li {
+  padding: 5px;
+  border-top: 2px solid #dcdedc;
+}
+input {
+  padding: 5px;
+}

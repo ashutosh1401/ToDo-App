@@ -20,16 +20,21 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: [] || JSON.parse(localStorage.getItem("todos"))
+      todos: [] || JSON.parse(localStorage.getItem("todos")),
+      value: ""
     };
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
+
   addTodo() {
-    const text = prompt("Add todo ");
     this.setState({
-      todos: [...this.state.todos, { id: id++, text: text, checked: false }]
+      todos: [
+        ...this.state.todos,
+        { id: id++, text: this.state.value, checked: false }
+      ]
     });
   }
   removeTodo(id) {
@@ -49,6 +54,9 @@ export default class App extends Component {
       })
     });
   }
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
   handleSubmit(event) {
     event.preventDefaut();
   }
@@ -66,7 +74,12 @@ export default class App extends Component {
         </div>
         <div className="bod">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" name="todo" placeholder="todo" />
+            <input
+              type="text"
+              value={this.state.value}
+              placeholder="todo"
+              onChange={this.handleChange}
+            />
             <button onClick={this.addTodo}>ADD Todo</button>
           </form>
           <ul>

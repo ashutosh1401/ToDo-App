@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 let id = 0;
 
@@ -101,6 +102,7 @@ export default class App extends Component {
             ))}
           </ul>
         </div>
+        <Footer />
       </div>
     );
   }

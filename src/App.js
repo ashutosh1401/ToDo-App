@@ -24,6 +24,7 @@ export default class App extends Component {
     };
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   addTodo() {
     const text = prompt("Add todo ");
@@ -48,6 +49,9 @@ export default class App extends Component {
       })
     });
   }
+  handleSubmit(event) {
+    event.preventDefaut();
+  }
   render() {
     return (
       <div className="App">
@@ -61,7 +65,10 @@ export default class App extends Component {
           {this.state.todos.filter((todo) => !todo.checked).length}
         </div>
         <div className="bod">
-          <button onClick={this.addTodo}>ADD Todo</button>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" name="todo" placeholder="todo" />
+            <button onClick={this.addTodo}>ADD Todo</button>
+          </form>
           <ul>
             {this.state.todos.map((todo) => (
               <Todo

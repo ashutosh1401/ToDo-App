@@ -27,6 +27,7 @@ export default class App extends Component {
     this.removeTodo = this.removeTodo.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleValue = this.handleValue.bind(this);
   }
 
   addTodo() {
@@ -54,11 +55,19 @@ export default class App extends Component {
       })
     });
   }
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  handleChange() {
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        { id: id++, text: this.state.value, checked: false }
+      ]
+    });
   }
   handleSubmit(event) {
-    event.preventDefaut();
+    event.preventDefault();
+  }
+  handleValue(event) {
+    this.setState({ value: event.target.value });
   }
   render() {
     return (
@@ -78,9 +87,9 @@ export default class App extends Component {
               type="text"
               value={this.state.value}
               placeholder="todo"
-              onChange={this.handleChange}
+              onChange={this.handleValue}
             />
-            <button onClick={this.addTodo}>ADD Todo</button>
+            <button onClick={this.handleChange}>ADD Todo</button>
           </form>
           <ul>
             {this.state.todos.map((todo) => (

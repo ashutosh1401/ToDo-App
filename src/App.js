@@ -12,8 +12,11 @@ const Todo = (props) => (
       checked={props.todo.checked}
       onClick={props.onToggle}
     />
-    <span>{props.todo.text}</span>
-    <button onClick={props.onDelete}>delete</button>
+    &nbsp;&nbsp;
+    <span>{props.todo.text}</span>&nbsp;&nbsp;
+    <button onClick={props.onDelete} className="delbtn">
+      Delete
+    </button>
   </li>
 );
 

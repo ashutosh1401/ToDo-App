@@ -7,9 +7,6 @@ export default class Footer extends Component {
         <a href="#github">Github</a>&nbsp;&nbsp;&nbsp;
         <a href="#linkedin">LinkedIn</a>&nbsp;&nbsp;&nbsp;
         <a href="#insta">Instagram</a>&nbsp;&nbsp;&nbsp;
-        <br />
-        <br />
-        <br />
       </footer>
     );
   }

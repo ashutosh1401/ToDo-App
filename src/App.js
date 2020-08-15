@@ -109,6 +109,7 @@ export default class App extends Component {
           </ul>
         </div>
         <Footer />
+        <p>This App is made by Ashutosh Thakur</p>
       </div>
     );
   }

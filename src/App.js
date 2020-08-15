@@ -93,11 +93,14 @@ export default class App extends Component {
               placeholder="todo"
               onChange={this.handleValue}
             />
-            <button onClick={this.handleChange}>ADD Todo</button>
+            <button onClick={this.handleChange} className="addbtn">
+              ADD Todo
+            </button>
           </form>
           <ul>
             {this.state.todos.map((todo) => (
               <Todo
+                key={todo.id}
                 todo={todo}
                 onDelete={() => this.removeTodo(todo.id)}
                 onToggle={() => this.toggleTodo(todo.id)}
